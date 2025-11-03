@@ -17,3 +17,20 @@ It also serves as a **learning project** to understand **Supabase (Backend-as-a-
 - **PostgreSQL** — relational database used by Supabase
 
 ---
+---
+
+## Notes
+
+As part of this project, I’m also documenting my learning journey with key technologies used here.
+
+### 📘 Supabase Crash Course
+Inside the folder [`Supabase-crash-course/`](./Supabase-crash-course), you'll find detailed notes about **Supabase** including:
+- What Supabase is  
+- What it provides  
+- Why we use it in React projects  
+- Basic **PostgreSQL + SQL query** examples and integration steps
+
+These notes serve as a **quick reference guide** for myself and anyone who wants to understand how Supabase works alongside React + Tailwind + Clerk + shadcn/ui.
+
+---
+
