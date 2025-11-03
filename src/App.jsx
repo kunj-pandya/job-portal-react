@@ -1,19 +1,55 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Button } from "./components/ui/button"
+import AppLayout from "./layout/AppLayout"
+import LandingPage from "./pages/LandingPage"
+import Onbording from "./pages/Onbording"
+import JobListing from "./pages/JobListing"
+import JobPage from "./pages/JobPage"
+import PostJob from "./pages/PostJob"
+import SavedJob from "./pages/SavedJob"
+import MyJobs from "./pages/MyJobs"
+
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <LandingPage />
+      },
+      {
+        path: "/onbording",
+        element: <Onbording />
+      },
+      {
+        path: "/jobs",
+        element: <JobListing />
+      },
+      {
+        path: "/job/:id",
+        element: <JobPage />
+      },
+      {
+        path: "/post-job",
+        element: <PostJob />
+      },
+      {
+        path: "/saved-job",
+        element: <SavedJob />
+      },
+      {
+        path: "/my-jobs",
+        element: <MyJobs />
+      }
+    ]
+  }
+])
 
 function App() {
 
   return (
-    <>
-      <div className="min-h-screen flex flex-col justify-center items-center text-white bg-blue-900">
-        <h1>React Job POrtal using Tailwind, Supabase, Cleark,Shadcn UI</h1>
-        <div className="mt-3">
+    <RouterProvider router={router} />
 
-          {/* Shadcn UI  */}
-          <Button>Click</Button>
-        </div>
-      </div>
-
-    </>
   )
 }
 
