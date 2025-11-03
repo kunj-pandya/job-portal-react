@@ -17,14 +17,13 @@ It also serves as a **learning project** to understand **Supabase (Backend-as-a-
 - **PostgreSQL** — relational database used by Supabase
 
 ---
----
 
 ## Notes
 
 As part of this project, I’m also documenting my learning journey with key technologies used here.
 
 ### 📘 Supabase Crash Course
-Inside the folder [`Supabase-crash-course/`](./Supabase-crash-course), you'll find detailed notes about **Supabase** including:
+Inside the folder [`Supabase-crash-course/`](./Supabase-crash-course/supabse.mds), you'll find detailed notes about **Supabase** including:
 - What Supabase is  
 - What it provides  
 - Why we use it in React projects  
