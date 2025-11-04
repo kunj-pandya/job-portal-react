@@ -61,11 +61,78 @@ Think of it like an Excel sheet:
 ##  Basic SQL Operations (CRUD)
 
 ### 🔹 Create Table
+
 ```sql
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW()
-);
+  CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+  );
 ```
+
+### 🔹 Insert Data
+
+```sql
+  INSERT INTO users (name, email)
+  VALUES ('Kunj', 'kunj@gmail.com');
+```
+
+### 🔹 Read Data
+
+```
+  SELECT * FROM users;
+  SELECT name FROM users WHERE email LIKE '%.com';
+```
+
+### 🔹 Update Data
+
+```
+  UPDATE users
+  SET name = 'Parth'
+  WHERE id = 1;
+```
+
+### 🔹 Delete Data
+
+```sql
+  DELETE FROM users WHERE id = 1;
+```
+
+### ⚙️ Filtering, Sorting & Limiting
+
+```sql
+  -- Sort users by newest
+  SELECT * FROM users ORDER BY created_at DESC;
+
+  -- Limit to 5 users
+  SELECT * FROM users LIMIT 5;
+
+  -- Filter
+  SELECT * FROM users WHERE name = 'Kunj';
+```
+
+### 🔐 Relationships (Foreign Keys)
+
+- Link tables using foreign keys:
+
+```
+  CREATE TABLE jobs (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT,
+    user_id INTEGER REFERENCES users(id)
+  );
+```
+
+Each job belongs to a user who created it.
+
+### 🧩 SQL → Supabase JS Equivalents
+
+| SQL                     | Supabase JS SDK                                    |
+| ----------------------- | -------------------------------------------------- |
+| `SELECT * FROM users;`  | `supabase.from('users').select('*')`               |
+| `INSERT INTO users ...` | `supabase.from('users').insert({...})`             |
+| `UPDATE users ...`      | `supabase.from('users').update({...}).eq('id', 1)` |
+| `DELETE FROM users ...` | `supabase.from('users').delete().eq('id', 1)`      |
+
